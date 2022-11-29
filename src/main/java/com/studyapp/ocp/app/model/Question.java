@@ -53,8 +53,9 @@ public class Question {
 		return questionSnippet;
 	}
 
-	public void setQuestionSnippet(String questionSnippet) {
+	public Question setQuestionSnippet(String questionSnippet) {
 		this.questionSnippet = questionSnippet;
+		return this;
 	}
 
 	public Integer getId() {

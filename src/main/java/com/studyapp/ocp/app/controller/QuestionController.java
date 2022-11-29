@@ -20,6 +20,11 @@ public class QuestionController {
 	@Autowired
 	private QuestionService questionService;
 	
+	@RequestMapping(value = "/question", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<Response<Question>> getQuestionById(@PathVariable Integer id) {
+		return ResponseEntity.ok().body(questionService.getQuestionById(id));
+	}
+	
 	@RequestMapping(value = "/questions", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<Response<Question[]>> getQuestions() {
 		return ResponseEntity.ok().body(questionService.getQuestions());

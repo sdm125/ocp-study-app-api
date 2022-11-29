@@ -85,7 +85,8 @@ public class QuestionService {
 				q.setAnswer(updatedQuestion.getAnswer())
 					.setAnswerSnippet(updatedQuestion.getAnswerSnippet())
 					.setQuestion(updatedQuestion.getQuestion())
-					.setQuestionSnippet(updatedQuestion.getQuestionSnippet());
+					.setQuestionSnippet(updatedQuestion.getQuestionSnippet())
+					.setChapter(updatedQuestion.getChapter());
 				
 				questionRepo.saveAndFlush(q);
 				res.setData(questionRepo.getQuestions()).setStatus(Status.SUCCESS);
