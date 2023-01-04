@@ -50,7 +50,7 @@ public class QuestionController {
 	}
 	
 	@RequestMapping(value = "/question", method = RequestMethod.PUT, produces = "application/json")
-	public ResponseEntity<Response<Question[]>> updateQuestion(@RequestBody Question question) {
+	public ResponseEntity<Response<Question>> updateQuestion(@RequestBody Question question) {
 		return ResponseEntity.ok().body(questionService.updateQuestion(question));
 	}
 	

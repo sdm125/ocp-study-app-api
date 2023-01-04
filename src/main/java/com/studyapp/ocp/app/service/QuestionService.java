@@ -76,8 +76,8 @@ public class QuestionService {
 		return res;
 	}
 	
-	public Response<Question[]> updateQuestion(Question updatedQuestion) {
-		Response<Question[]> res = new Response();
+	public Response<Question> updateQuestion(Question updatedQuestion) {
+		Response<Question> res = new Response();
 		
 		try {
 			Optional<Question> question = questionRepo.findById(updatedQuestion.getId());
@@ -89,7 +89,7 @@ public class QuestionService {
 					.setChapter(updatedQuestion.getChapter());
 				
 				questionRepo.saveAndFlush(q);
-				res.setData(questionRepo.getQuestions()).setStatus(Status.SUCCESS);
+				res.setData(q).setStatus(Status.SUCCESS);
 			});
 			
 		} catch(Exception e) {
