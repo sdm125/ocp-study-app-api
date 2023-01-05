@@ -24,22 +24,22 @@ public class OcpApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(OcpApplication.class, args);
 	}
-
+	
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**")
-						.allowedOrigins("http://localhost:4200")
-						.allowedMethods("GET", "POST", "DELETE", "PUT");
+					.allowedOrigins("http://localhost:4200", "https://ocpflashcard.netlify.app")
+					.allowedMethods("GET", "POST", "DELETE", "PUT");
 			}
 		};
 	}
-
+	
 	@Bean
 	PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-
+	
 }
